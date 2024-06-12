@@ -1,0 +1,56 @@
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        // int zeros, ones,twos; 
+        // zeros = ones = twos = 0;   
+        // for (int i =0; i<nums.size();i++){
+        //     if(nums[i]==0){
+        //         zeros++;
+        //     } 
+        //      if(nums[i]==1){
+        //         ones++;
+        //     } 
+        //      if(nums[i]==2){
+        //         twos++;
+        //     }
+        // }  
+        // int i =0;
+        // while(zeros > 0){
+        //     nums[i] = 0; 
+        //     i++; 
+        //     zeros--;
+        // } 
+        // while(ones > 0){
+        //     nums[i] = 1; 
+        //     i++; 
+        //     ones--;
+        // } 
+        // while(twos > 0){
+        //     nums[i] = 2; 
+        //     i++; 
+        //     twos--;
+        // } 
+        // it's not a in place solution  
+ 
+        // in place solution (3- pointer approach) 
+
+        int l=0; 
+        int m = 0; 
+        int h = nums.size()-1; 
+
+        while (h >= m){
+            if (nums[m] ==0){
+                swap(nums[m],nums[l]); 
+                l++;
+                m++;
+            } 
+            else if(nums[m]==1){
+                m++;
+            } 
+            else{
+                swap(nums[m],nums[h]); 
+                h--;
+            }
+        }
+    }
+};
